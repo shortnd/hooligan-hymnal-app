@@ -61,3 +61,7 @@
   This is our chose of image service we are using, If you would like to use a different service please make the changes in the nessesary files in your own fork.
 
   To generate you cloudinary url, go to [https://cloudinary.com/](https://cloudinary.com/) and create/login to an account. The basic free plan should be enough for most everyone. Once logged it should make an new cloud for you. Once you get to the dashboard. You should then see Account Detials, hit reveal next to API Secret then copy Enviorment variable, this is the url will be used for `CLOUDINARY_URL`, you can test it by uploading a new file from the players create form, and then check back in the cloudinary dashboard to verify it uploaded. You can then delete it and you will be able to upload images now that are served on a CDN.
+
+### INPUT LANGUAGES
+This is an array of strings with the representation of the languages you want to support.
+ie: ["en", "es", "de"]
