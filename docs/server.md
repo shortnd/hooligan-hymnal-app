@@ -12,6 +12,7 @@
   API_KEY=
   ENV=development
   CLOUDINARY_URL=<Generate following link below.>
+  INPUT_LANGUAGES=[<insert array of langs being used in short form ie: ['en', 'es']>]
   ```
 
 ### Production
@@ -22,6 +23,7 @@
   REFRESH_SECRET_KEY=
   REFRESH_TOKEN_EXPIRES=
   CLOUDINARY_URL=<Generate following link below.>
+  INPUT_LANGUAGES=[<insert array of langs being used in short form ie: ['en', 'es']>]
   ```
 
 ## Settings requirements
