@@ -14,29 +14,12 @@
                 "- Some code based on open source @nodevember conference schedule app"
             ],
             "debug": "Debug",
-            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
-        },
-        "capocompose": {
-            "title": "Compose Song",
-            "songtitle": "Title",
-            "songlyrics": "Lyrics",
-            "continue": "Continue"
-        },
-        "capoconfirmGK": {
-            "title": "Confirm GK Nickname?",
-            "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
-        },
-        "capoconfirmsong": {
-            "title": "Confirm Song?",
-            "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
+            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com"
         },
         "capohome": {
             "title": "Capo Dashboard",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
-            "gknickname": "GK Nickname"
+            "postcreate": "Create Post",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",
@@ -44,14 +27,49 @@
             "password": "Password",
             "unlock": "Unlock"
         },
-        "caposelectsong": {
-            "title": "Select Song"
+        "postattach": {
+            "attachmenttypes": "Attachment Types",
+            "selectplayer": "Select Player",
+            "selectsong": "Select Song",
+            "composesong": "Compose Song",
+            "masstweet": "Tweet the Players",
+            "gknickname": "GK Nickname"
         },
-        "caposetGKnickname": {
-            "title": "GK Nickname",
+        "postattachmentcomposegknickname": {
+            "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
+        },
+        "postattchmentcomposesong": {
+            "composesong": "Compose Song",
+            "title": "Title",
+            "lyrics": "Lyrics",
+            "attach": "Attach"
+        },
+        "postattachmentselectmasstweet": {
+            "selectroster": "Select Roster",
+            "search": "Search"
+        },
+        "postattachmentselectplayer": {
+            "selectplayer": "Select Player",
+            "search": "Search"
+        },
+        "postattachmentselectsong": {
+            "selectsong": "Select Song",
+            "search": "Search"
+        },
+        "postcreate": {
+            "title": "Create Post",
+            "addattachment": "Add Attachment",
+            "push": "Bother people with a push notification? Seriously?",
+            "cancel": "Cancel",
+            "continue": "Continue"
+        },
+        "postpreview": {
+            "title": "Preview Post",
+            "submit": "Submit Post",
+            "schedule": "Schedule Post"
         },
         "events": {
             "title": "Events",
@@ -127,7 +145,7 @@
         "songbook": "SONGBOOK",
         "roster": "ROSTER",
         "events": "EVENTS ↗️",
-        "standings": "NPSL-MC STANDINGS ↗️",
+        "standings": "STANDINGS ↗️",
         "shop": "MERCH SHOP ↗️",
         "volunteer": "VOLUNTEER ↗️",
         "instrumentation": "INSTRUMENTATION ↗️",
@@ -137,6 +155,22 @@
     "components": {
         "gkNickname": {
             "gonnascore": "We're gonna score on you, "
+        },
+        "post": {
+            "copied": "Copied",
+            "hidealerttitle": "Hide Post",
+            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "hidealertcancel": "Cancel",
+            "hidealertconfirm": "Hide"
+        },
+        "postattachmentgknickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "postattachmentmasstweet": {
+            "tweettheplayers": "Tweet the Players"
+        },
+        "postattachmentmultitweet": {
+            "tweettheplayers": "Tweet them all!"
         },
         "songview": {
             "copiedtitle": "Copied title to clipboard",

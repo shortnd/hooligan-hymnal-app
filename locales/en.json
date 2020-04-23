@@ -3,6 +3,7 @@
         "about": {
             "title": "About",
             "appTitle": "Chattahooligan Hymnal",
+            "version": "v",
             "why": "The Chattahooligan Hymnal is built to help you support Chattanooga FC.",
             "feedback": "Please send feedback to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
             "creditsheading": "Credits",
@@ -10,33 +11,15 @@
                 "- Home screen video created by Jay Kaley",
                 "- Menu photo from Phil Thach photography",
                 "- Some player photos from Madonna Kemp and Ray Soldano, used with permission",
-                "- Player headshots provided by Chattanooga FC, used with permission",
-                "- Some code based on open source @nodevember conference schedule app"
+                "- Player headshots provided by Chattanooga FC, used with permission"
             ],
             "debug": "Debug",
-            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@chattahooligan_ or _@hooliganhymnal_ on Twitter, or email thechattahooligans@gmail.com",
-        },
-        "capocompose": {
-            "title": "Compose Song",
-            "songtitle": "Title",
-            "songlyrics": "Lyrics",
-            "continue": "Continue"
-        },
-        "capoconfirmGK": {
-            "title": "Confirm GK Nickname?",
-            "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
-        },
-        "capoconfirmsong": {
-            "title": "Confirm Song?",
-            "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
+            "contribute": " is built using the open-source *Hooligan Hymnal* platform.\n\nInterested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@hooliganhymnal_ on Twitter or visit the project repository at https://github.com/Chattahooligans"
         },
         "capohome": {
             "title": "Capo Dashboard",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
-            "gknickname": "GK Nickname"
+            "postcreate": "Create Post",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",
@@ -44,14 +27,61 @@
             "password": "Password",
             "unlock": "Unlock"
         },
-        "caposelectsong": {
-            "title": "Select Song"
+        "postattach": {
+            "attachmenttypes": "Attachment Types",
+            "selectplayer": "Select Player",
+            "selectsong": "Select Song",
+            "composesong": "Compose Song",
+            "masstweet": "Tweet the Players",
+            "gknickname": "GK Nickname"
         },
-        "caposetGKnickname": {
-            "title": "GK Nickname",
+        "postattachmentcomposegknickname": {
+            "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
             "instructions2": "2. Pick a color, any color",
             "instructions3": "3. Which is more readable?"
+        },
+        "postattchmentcomposesong": {
+            "composesong": "Compose Song",
+            "title": "Title",
+            "lyrics": "Lyrics",
+            "attach": "Attach"
+        },
+        "postattachmentselectmasstweet": {
+            "selectroster": "Select Roster",
+            "search": "Search"
+        },
+        "postattachmentselectplayer": {
+            "selectplayer": "Select Player",
+            "search": "Search"
+        },
+        "postattachmentselectsong": {
+            "selectsong": "Select Song",
+            "search": "Search"
+        },
+        "postcreate": {
+            "title": "Create Post",
+            "linkimage": "Link Remote Image",
+            "uploadimage": "Upload Image",
+            "nopermission": "Permissions failed",
+            "addattachment": "Add Attachment",
+            "push": "Bother people with a push notification? Seriously?",
+            "cancel": "Cancel",
+            "continue": "Continue",
+            "linkimageinstructions": "Paste the exact web address of an image",
+            "linkimagewarning": "WARNING:\n- Performance can slow down with large images. Consider linking to a smaller version as a thumbnail\n- Also, no validation or error checking is done on remotely linked images. Admins should proceed only with care and caution.",
+            "pasteuri": "Paste URI",
+            "pastethumbnailuri": "Paste Thumbnail URI",
+            "link": "Link Image"
+        },
+        "postpreview": {
+            "title": "Preview Post",
+            "submit": "Submit Post",
+            "schedule": "Schedule Post"
+        },
+        "refereecard": {
+            "titlered": "Flash 'Em a Card",
+            "titleyellow": "Flash 'Em a Card"
         },
         "events": {
             "title": "Events",
@@ -79,6 +109,10 @@
             "title": "Roster",
             "nosquadsfound": "No squads found",
             "twitterlist": "Twitter List"
+        },
+        "rosterfoes": {
+            "title": "Roster",
+            "nonefound": "None found"
         },
         "rosterhome": {
             "title": "Roster",
@@ -127,7 +161,7 @@
         "songbook": "SONGBOOK",
         "roster": "ROSTER",
         "events": "EVENTS ↗️",
-        "standings": "NPSL-MC STANDINGS ↗️",
+        "standings": "STANDINGS ↗️",
         "shop": "MERCH SHOP ↗️",
         "volunteer": "VOLUNTEER ↗️",
         "instrumentation": "INSTRUMENTATION ↗️",
@@ -137,6 +171,42 @@
     "components": {
         "gkNickname": {
             "gonnascore": "We're gonna score on you, "
+        },
+        "imageviewer": {
+            "savetolocal": "Save to Device",
+            "cancel": "Cancel"
+        },
+        "imageviewerfooter": {
+            "captionprefix": "",
+            "creditprefix": "📷: ",
+            "copied": "Copied"
+        },
+        "post": {
+            "copied": "Copied",
+            "hidealerttitle": "Hide Post",
+            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "postadminalertitleios": "Post Admin Menu",
+            "postadminalerthidemessageios": "Are you sure you want to hide this post from the Feed?\n\nWarning: There is no second confirmation step.",
+            "hidealertcancel": "Cancel",
+            "hidealertconfirm": "Hide"
+        },
+        "postattachmentgknickname": {
+            "gonnascore": "We're gonna score on you, "
+        },
+        "postattachmentmasstweet": {
+            "tweettheplayers": "Tweet the Players"
+        },
+        "postcreateimagewrapper": {
+            "metadatatitle": "Image Metadata",
+            "credit": "Image Credit",
+            "caption": "Caption",
+            "common": "Frequently-credited Photographers",
+            "save": "Save Metadata",
+            "clear": "Clear Metadata",
+            "cancel": "Cancel"
+        },
+        "postattachmentmultitweet": {
+            "tweettheplayers": "Tweet them all!"
         },
         "songview": {
             "copiedtitle": "Copied title to clipboard",
@@ -156,11 +226,23 @@
         "Midfielder": "Midfielder",
         "Goalkeeper": "Goalkeeper",
         "Head Coach": "Head Coach",
+        "Assistant Coach": "Assistant Coach",
+        "Goalkeeper Coach": "Goalkeeper Coach",
+        "Technical Director": "Technical Director",
         "Associate Head Coach": "Associate Head Coach",
-        "Goalkeeper Coach": "Goalkeeper Coach"
+        "2007 Boys": "2007 Boys",
+        "2007 Girls": "2007 Girls",
+        "2006 Boys": "2006 Boys",
+        "2006 Girls": "2006 Girls",
+        "2005 Boys": "2005 Boys",
+        "2004 Boys": "2004 Boys",
+        "2003 Boys": "2003 Boys",
+        "2002 Boys": "2002 Boys",
+        "2001 Boys": "2001 Boys"
     },
     "settings": {
         "socialEN": "Follow us",
-        "socialES": "Síguenos"
+        "socialES": "Síguenos",
+        "other": "Fan projects (unaffiliated)"
     }
 }

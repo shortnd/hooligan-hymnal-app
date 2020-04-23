@@ -1,67 +1,102 @@
 # Server Settings
 
-## Required Env Variables
+## MongoDB Atlas settings
+
+You will need to configure an IP whitelist in Atlas for your cluster. If you are using Heroku private spaces or another add-on to control
+your Heroku cluster's public IP address, you may configure that IP for added security. Otherwise, you will need to choose a VERY strong
+password and whitelist 0.0.0.0/0 to allow traffic to reach MongoDB.
+
+The Hymnal's version of Mongoose currently requires the >=2.2.12 MongoDB connection string; 3.0 compatibility will be released at a later date.
+
+## Heroku: Required Env Variables
+
 ### Development
-  ```
-  PORT=5000
-  MONGO_URI=mongodb://localhost/<db_name_here>
-  SECRET_KEY=
-  TOKEN_EXPIRES=
-  REFRESH_SECRET_KEY=
-  REFRESH_TOKEN_EXPIRES=
-  API_KEY=
-  ENV=development
-  CLOUDINARY_URL=<Generate following link below.>
-  INPUT_LANGUAGES=[<insert array of langs being used in short form ie: ['en', 'es']>]
-  ```
+
+```
+EXPO_EXPERIENCE=
+ENV=development
+PORT=3000
+MONGO_URI=mongodb://localhost/<db_name_here>
+SECRET_KEY=
+INPUT_LANGUAGE=["en", "es", "de"]
+CLOUDINARY_URL=<Generate following link below.>>
+TOKEN_EXPIRES="1h"
+REFRESH_TOKEN_EXPIRES="1d"
+MAIL_HOST=
+MAIL_PORT=587
+MAIL_USER=
+MAIL_PASS=
+```
 
 ### Production
-  ```
-  MONGO_URI=<MLab URL>
-  SECRET_KEY=
-  TOKEN_EXPIRES=
-  REFRESH_SECRET_KEY=
-  REFRESH_TOKEN_EXPIRES=
-  CLOUDINARY_URL=<Generate following link below.>
-  INPUT_LANGUAGES=[<insert array of langs being used in short form ie: ['en', 'es']>]
-  ```
+
+```
+EXPO_EXPERIENCE=
+MONGO_URI=mongodb://localhost/<db_name_here>
+SECRET_KEY=
+INPUT_LANGUAGE=["en", "es", "de"]
+CLOUDINARY_URL=<Generate following link below.>>
+TOKEN_EXPIRES="1h"
+REFRESH_TOKEN_EXPIRES="1d"
+MAIL_HOST=
+MAIL_PORT=587
+MAIL_USER=
+MAIL_PASS=
+```
 
 ## Settings requirements
-  ### PORT (DEV)
-  `PORT=5000` uses to run both dev node server along with vue-cli
 
-  ### MONGO_URI (DEV)
-  `MONGO_URI=mongodb://localhost/<db_name_here>` could be url for local mongodb or mLab
+### EXPO_EXPERIENCE
 
-  ### MONGO_URI (PROD)
-  `MONGO_URI=<mlab_url>` - url to your mLab instance
+`EXPO=EXPERIENCE=@<owner>/<slug>` should match related .expo fields in app.json
 
-  ### JWT Settings
-  #### KEYS
-  `SECRET_KEY` random string of charaters, can be anything, suggest making the secret key in prod different from dev enviorment.
+### PORT (DEV)
 
-  Encrypts your default jwt
+`PORT=5000` uses to run both dev node server along with vue-cli
 
-  `REFRESH_SECRET_KEY` random string of charaters, can be anything, suggest making the secret key in prod different from dev enviorment.
+### MONGO_URI (DEV)
 
-  Encrypts your remember_me jwt
+`MONGO_URI=mongodb://localhost/<db_name_here>` could be url for local mongodb or mLab
 
-  #### REFRESH
-  All of the following settings are settings for passport-jwt.
+### MONGO_URI (PROD)
 
-  If either of these options aren't set the default server options are "1h" and "1d" respectively.
+`MONGO_URI=<mlab_url>` - url to your mLab instance
 
-  `TOKEN_EXPIRES` string of how long you want your tokens will be valid for.
+### JWT Settings
 
-  - Avaliable options "1h" - "30d"
+#### KEYS
 
-  `REFRESH_TOKEN_EXPIRES` same as `TOKEN_EXPIRES` this will affect how long your remember_me tokens will be valid for.
+`SECRET_KEY` random string of charaters, can be anything, suggest making the secret key in prod different from dev enviorment.
 
-  ### Cloudinary
-  This is our chose of image service we are using, If you would like to use a different service please make the changes in the nessesary files in your own fork.
+Encrypts your default jwt
 
-  To generate you cloudinary url, go to [https://cloudinary.com/](https://cloudinary.com/) and create/login to an account. The basic free plan should be enough for most everyone. Once logged it should make an new cloud for you. Once you get to the dashboard. You should then see Account Detials, hit reveal next to API Secret then copy Enviorment variable, this is the url will be used for `CLOUDINARY_URL`, you can test it by uploading a new file from the players create form, and then check back in the cloudinary dashboard to verify it uploaded. You can then delete it and you will be able to upload images now that are served on a CDN.
+`REFRESH_SECRET_KEY` random string of charaters, can be anything, suggest making the secret key in prod different from dev enviorment.
 
-### INPUT LANGUAGES
-This is an array of strings with the representation of the languages you want to support.
-ie: ["en", "es", "de"]
+Encrypts your remember_me jwt
+
+#### REFRESH
+
+All of the following settings are settings for passport-jwt.
+
+If either of these options aren't set the default server options are "1h" and "1d" respectively.
+
+`TOKEN_EXPIRES` string of how long you want your tokens will be valid for.
+
+- Avaliable options "1h" - "30d"
+
+`REFRESH_TOKEN_EXPIRES` same as `TOKEN_EXPIRES` this will affect how long your remember_me tokens will be valid for.
+
+### Cloudinary
+
+This is our chose of image service we are using, If you would like to use a different service please make the changes in the nessesary files in your own fork.
+
+To generate you cloudinary url, go to [https://cloudinary.com/](https://cloudinary.com/) and create/login to an account. The basic free plan should be enough for most everyone. Once logged it should make an new cloud for you. Once you get to the dashboard. You should then see Account Detials, hit reveal next to API Secret then copy Enviorment variable, this is the url will be used for `CLOUDINARY_URL`, you can test it by uploading a new file from the players create form, and then check back in the cloudinary dashboard to verify it uploaded. You can then delete it and you will be able to upload images now that are served on a CDN.
+
+### INPUT LANGUAGE
+
+Settings for multilang bios.. This will also be used in multilang for other sections of the app.. There is also an endpoint on the server that allows the app to get language settings also at `/api/i18n-settings`
+
+### EMAIL (SMTP Settings)
+
+If your SG use gmail for there email we suggest using it as it is free to use, limit 500 emails per day. Hopefully 500 people don't need to reset there password on the same day. Below are the instructions from google down below. You will need to add 2 Factor Auth for the account. The instructions you are looking for is under **_Use the Gmail SMTP Server_** keep the default port number.
+[https://support.google.com/a/answer/176600?hl=en](https://support.google.com/a/answer/176600?hl=en)
