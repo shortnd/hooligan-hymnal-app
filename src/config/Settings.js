@@ -9,9 +9,9 @@
 
 // HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
-export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
+// export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-hymnal.herokuapp.com'
 // dev branch
-//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://chattahooligan-dev.herokuapp.com'
 
 // URLs
 export const TWITTER_URL = 'https://twitter.com/chattahooligan';
@@ -208,7 +208,7 @@ export const banners = [
 /*
   Common Image Credit
 
-  It's likely that photos will come from a select few SG or club photographers. 
+  It's likely that photos will come from a select few SG or club photographers.
   Let's make it easy to credit those people for letting us use their work.
 */
 export const commonImageCredit = [

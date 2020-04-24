@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
@@ -52,9 +53,9 @@ class App extends React.Component {
         ...Ionicons.font
       }),
       Asset.loadAsync(imagesArray),
-      Asset.fromModule(
-        require('react-navigation/src/views/assets/back-icon.png')
-      ).downloadAsync()
+      // Asset.fromModule(
+      //   require('react-navigation/src/views/assets/back-icon.png')
+      // ).downloadAsync()
     ]);
   };
 

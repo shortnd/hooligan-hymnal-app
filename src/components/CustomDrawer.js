@@ -6,12 +6,34 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-import { DrawerItems, NavigationActions, SafeAreaView, StackNavigator } from 'react-navigation';
+// import { DrawerItems, NavigationActions, SafeAreaView, StackNavigator } from 'react-navigation';
+import { DrawerItem, DrawerItemList } from '@react-navigation/drawer';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { Layout } from '../constants';
 import { Palette, Settings, Skin } from '../config/Settings';
 import i18n from '../../i18n';
+
+const CustomDrawerItem = () => {
+  return (
+          {/* <DrawerItems
+        {...props}
+        activeBackgroundColor="rgba(255,255,255,0.1)"
+        labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
+        onItemPress={({ route, focused }) => {
+          if (route.routeName === 'CapoHome') {
+            if (props.globalData.state.unlocked === true) {
+              props.navigation.navigate('CapoHome');
+            } else {
+              props.navigation.navigate('CapoLogin');
+            }
+          } else {
+            props.onItemPress({ route });
+          }
+        }}
+      /> */}
+  )
+}
 
 const CustomDrawer = props => (
   <View style={styles.container}>
@@ -29,22 +51,13 @@ const CustomDrawer = props => (
       </View>
     </View>
     <ScrollView style={{ flex: 1 }}>
-      <DrawerItems
-        {...props}
+      <DrawerItemList {...props}
         activeBackgroundColor="rgba(255,255,255,0.1)"
-        labelStyle={{ color: 'white', textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
-        onItemPress={({ route, focused }) => {
-          if (route.routeName === 'CapoHome') {
-            if (props.globalData.state.unlocked === true) {
-              props.navigation.navigate('CapoHome');
-            } else {
-              props.navigation.navigate('CapoLogin');
-            }
-          } else {
-            props.onItemPress({ route });
-          }
-        }}
-      />
+        labelStyle={{
+          color: 'white',
+          textAlign: i18n.getRTLTextAlign(),
+          writingDirection: i18n.getWritingDirection()
+        }} />
     </ScrollView>
       {Settings.RefereeCards_Show &&
         <View style={{ borderTopColor: '#222', borderTopWidth: 1 }}>

@@ -80,6 +80,9 @@ export default class GlobalDataContainer extends Container {
       });
     } catch (e) {
       alert("loadData exception: " + e.toString());
+      this.setState({
+        loadDataComplete: true
+      })
     }
   };
 

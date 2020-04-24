@@ -1,11 +1,17 @@
 import React from 'react';
-import { Dimensions, View } from 'react-native';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { Dimensions, View, Text } from 'react-native';
 import Screens from './screens';
+// import Home from './screens/Home';
 import CustomDrawer from './components/CustomDrawer';
 import NavigationOptions from './config/NavigationOptions';
 import { Palette } from './config/Settings';
 import i18n from "../i18n";
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { props } from 'ramda';
 
 const { width: deviceWidth } = Dimensions.get('window');
 
@@ -15,205 +21,41 @@ const DefaultStackConfig = {
   }
 };
 
-const HomeNavigation = StackNavigator(
-  {
-    Home: { screen: Screens.Home },
-    SinglePost: { screen: Screens.SinglePost },
-    SingleSong: { screen: Screens.SingleSong },
-    Player: { screen: Screens.Player },
-    TwitterList: { screen: Screens.TwitterList },
-    Channel: { screen: Screens.Channel }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.home')
-    }
-  }
-);
+const RootDrawer = createDrawerNavigator();
+const HomeStackNavigator = createStackNavigator();
 
-const SongbookNavigation = StackNavigator(
-  {
-    Songbook: {
-      screen: Screens.Songbook
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.songbook')
-    }
-  }
-);
+const HomeNavigation = () => (
+  <HomeStackNavigator.Navigator
+    screenOptions={{
+      headerShown: false
+    }}>
+    <HomeStackNavigator.Screen name="Home" component={Screens.Home} />
+  </HomeStackNavigator.Navigator>
+)
 
-const RosterNavigation = StackNavigator(
-  {
-    RosterHome: { screen: Screens.RosterHome }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.roster')
-    }
-  }
-);
+const SongbookNavigation = () => (
+  <HomeStackNavigator.Navigator
+    screenOptions={{
+      headerShown: false
+    }}>
+    <HomeStackNavigator.Screen name="Songbook" component={Screens.Songbook} />
+  </HomeStackNavigator.Navigator>
+)
 
+const Drawer = () => (
+  <RootDrawer.Navigator
+    drawerContent={props => <CustomDrawer {...props} />}>
+    <RootDrawer.Screen name="Home" component={HomeNavigation} />
+    <RootDrawer.Screen name="Songbook" component={SongbookNavigation} />
+  </RootDrawer.Navigator>
+)
 
-const EventsNavigation = StackNavigator(
-  {
-    Events: {
-      screen: Screens.Events
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.events')
-    }
-  }
-);
-
-const StandingsNavigation = StackNavigator(
-  {
-    Events: {
-      screen: Screens.Standings
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.standings')
-    }
-  }
-);
-
-const ShopNavigation = StackNavigator(
-  {
-    Events: {
-      screen: Screens.Shop
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.shop')
-    }
-  }
-);
-
-const VolunteerNavigation = StackNavigator(
-  {
-    Events: {
-      screen: Screens.Volunteer
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.volunteer')
-    }
-  }
-);
-
-const InstrumentationNavigation = StackNavigator(
-  {
-    Events: {
-      screen: Screens.Instrumentation
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.instrumentation')
-    }
-  }
-);
-
-const CapoHomeNavigation = StackNavigator(
-  {
-    CapoLogin: { screen: Screens.CapoLogin },
-    CapoHome: { screen: Screens.CapoHome },
-    PostCreate: { screen: Screens.PostCreate },
-    PostPreview: { screen: Screens.PostPreview }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.capo')
-    }
-  }
-);
-
-const AboutNavigation = StackNavigator(
-  {
-    About: {
-      screen: Screens.About
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.about')
-    }
-  }
-);
-
-const RedCard = () => (<Screens.RefereeCard name="RedCard" color={Palette.RedCard} />)
-const YellowCard = () => (<Screens.RefereeCard name="YellowCard" color={Palette.YellowCard} />)
-const RedCardNavigation = StackNavigator(
-  {
-    RedCard
-  },
-  {
-    navigationOptions: {
-      ...NavigationOptions,
-      title: i18n.t('screens.refereecard.titlered'),
-      headerStyle: { backgroundColor: Palette.RedCard },
-      drawerLabel: () => null
-    }
-  }
-);
-const YellowCardNavigation = StackNavigator(
-  {
-    YellowCard
-  },
-  {
-    navigationOptions: {
-      ...NavigationOptions,
-      title: i18n.t('screens.refereecard.titleyellow'),
-      headerStyle: { backgroundColor: Palette.YellowCard },
-      drawerLabel: () => null
-    }
-  }
-);
-
-const Drawer = DrawerNavigator(
-  {
-    Home: { screen: HomeNavigation },
-    Songbook: { screen: SongbookNavigation },
-    Roster: { screen: RosterNavigation },
-    Events: { screen: EventsNavigation },
-    Standings: { screen: StandingsNavigation },
-    Shop: { screen: ShopNavigation },
-    Volunteer: { screen: VolunteerNavigation },
-    Instrumentation: { screen: InstrumentationNavigation },
-    CapoHome: { screen: CapoHomeNavigation },
-    About: { screen: AboutNavigation },
-    RedCard: { screen: RedCardNavigation },
-    YellowCard: { screen: YellowCardNavigation },
-  },
-  {
-    contentComponent: props => <CustomDrawer {...props} />,
-    drawerWidth: deviceWidth - 80
-  }
-);
-
-export default StackNavigator(
-  {
-    Drawer: { screen: Drawer }
-  },
-  {
-    ...DefaultStackConfig,
-    headerMode: 'none'
-  }
-);
+export default function AppNavigation() {
+  return (
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Drawer />
+      </NavigationContainer>
+    </SafeAreaProvider>
+  )
+}

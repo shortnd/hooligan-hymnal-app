@@ -10,6 +10,7 @@ import {
   ScrollView,
   Dimensions
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import SongView from '../components/SongView';
 import NavigationOptions from '../config/NavigationOptions';
 import { Ionicons } from '@expo/vector-icons';
